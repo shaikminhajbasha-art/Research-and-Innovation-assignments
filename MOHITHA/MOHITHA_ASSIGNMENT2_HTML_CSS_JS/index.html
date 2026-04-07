@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Brainy Bunch – AI Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- WELCOME SCREEN -->
+  <div class="screen active" id="screen-welcome">
+    <div class="card">
+      <div class="badge">🧠 Quiz Time</div>
+      <h1 class="title">The Brainy<br><span class="accent">Bunch</span></h1>
+      <p class="subtitle">Test your knowledge on <strong>AI Technologies</strong></p>
+      <button class="btn btn-primary" onclick="showScreen('screen-rules')">Welcome →</button>
+    </div>
+  </div>
+
+  <!-- RULES SCREEN -->
+  <div class="screen" id="screen-rules">
+    <div class="card">
+      <div class="badge">📋 Before You Begin</div>
+      <h2 class="title-sm">Rules &amp; Guidelines</h2>
+      <ul class="rules-list">
+        <li><span class="rule-icon">❶</span>There are <strong>5 questions</strong> in this quiz.</li>
+        <li><span class="rule-icon">❷</span>Each question has <strong>4 options</strong> — pick one.</li>
+        <li><span class="rule-icon">❸</span>You <strong>cannot go back</strong> once you move to the next question.</li>
+        <li><span class="rule-icon">❹</span>Each correct answer earns <strong>1 point</strong>.</li>
+        <li><span class="rule-icon">❺</span>Your final score will be displayed at the end.</li>
+      </ul>
+      <button class="btn btn-primary" onclick="startQuiz()">Let's Start! 🚀</button>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div class="screen" id="screen-quiz">
+    <div class="card">
+      <div class="quiz-header">
+        <span class="question-counter" id="question-counter">Question 1 of 5</span>
+        <span class="score-tracker" id="score-tracker">Score: 0</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <p class="question-text" id="question-text"></p>
+      <div class="options-grid" id="options-grid"></div>
+      <button class="btn btn-next" id="next-btn" onclick="nextQuestion()" disabled>Next →</button>
+    </div>
+  </div>
+
+  <!-- RESULT SCREEN -->
+  <div class="screen" id="screen-result">
+    <div class="card" style="text-align:center;">
+      <div class="result-emoji" id="result-emoji">🎉</div>
+      <h2 class="title-sm" id="result-title">Well Done!</h2>
+      <p class="result-score" id="result-score"></p>
+      <p class="result-msg" id="result-msg"></p>
+      <button class="btn btn-primary" onclick="restartQuiz()">Play Again 🔄</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
