@@ -1,0 +1,397 @@
+/* ============================
+   LUMEX — style.css
+   Aesthetic: Refined Editorial / Luxury Dark
+   ============================ */
+
+/* ---------- RESET & VARIABLES ---------- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg:        #0d0d0e;
+  --bg2:       #141416;
+  --surface:   #1c1c1f;
+  --border:    rgba(255,255,255,0.08);
+  --gold:      #c9a84c;
+  --gold-lt:   #e8c97a;
+  --white:     #f5f3ee;
+  --muted:     #888885;
+  --font-head: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --radius:    12px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  height: 72px;
+  background: rgba(13,13,14,0.85);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color var(--transition);
+}
+
+.nav-links a:hover { color: var(--white); }
+
+.nav-cta {
+  padding: 0.55rem 1.4rem;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: #0d0d0e;
+}
+
+/* ---------- PRODUCT SECTION ---------- */
+.product-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6vw;
+  padding: 8vh 8vw 10vh;
+  min-height: 88vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow behind image */
+.product-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* --- Image Side --- */
+.product-image-wrap {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeUp 0.9s ease both;
+}
+
+.image-bg-circle {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.product-img {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.7));
+  transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.product-img:hover {
+  transform: scale(1.04) rotate(-2deg);
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  right: -10px;
+  background: var(--gold);
+  color: #0d0d0e;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+}
+
+/* --- Info Side --- */
+.product-info {
+  max-width: 480px;
+  animation: fadeUp 0.9s 0.15s ease both;
+}
+
+.product-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.product-title {
+  font-family: var(--font-head);
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  line-height: 1.1;
+  margin-bottom: 1.4rem;
+  color: var(--white);
+}
+
+.product-title em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+
+.product-desc {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 2.2rem;
+  max-width: 420px;
+}
+
+.product-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.price {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  color: var(--gold-lt);
+}
+
+.btn-primary {
+  padding: 0.75rem 1.8rem;
+  background: var(--gold);
+  color: #0d0d0e;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-primary:hover {
+  background: var(--gold-lt);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  padding: 0.75rem 1.8rem;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ---------- FEATURES SECTION ---------- */
+.features-section {
+  padding: 6vh 8vw 10vh;
+  text-align: center;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+
+.section-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  color: var(--white);
+  margin-bottom: 4rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Cards Row (Flexbox) --- */
+.cards-row {
+  display: flex;
+  gap: 1.8rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 240px;
+  max-width: 320px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.4rem 2rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  animation: fadeUp 0.8s ease both;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.25s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201,168,76,0.35);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+/* Accent card variant */
+.card--accent {
+  background: linear-gradient(135deg, #1c1a10, #201e12);
+  border-color: rgba(201,168,76,0.3);
+}
+
+.card-icon {
+  font-size: 1.6rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.card-title {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.card-text {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.card-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 20px;
+  padding: 0.25rem 0.7rem;
+  margin-top: 0.3rem;
+  align-self: flex-start;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  text-align: center;
+  padding: 2.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 820px) {
+  .product-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 6vh 6vw;
+    gap: 3rem;
+  }
+
+  .product-desc { margin-left: auto; margin-right: auto; }
+
+  .product-meta {
+    justify-content: center;
+  }
+
+  .nav-links { display: none; }
+
+  .cards-row { flex-direction: column; align-items: center; }
+
+  .card { max-width: 100%; }
+}

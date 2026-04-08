@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz App — RAHUL</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="bg-grid"></div>
+
+  <div class="container">
+
+    <!-- START SCREEN -->
+    <div class="card" id="start-screen">
+      <div class="badge">5 Questions</div>
+      <h1>Brain<br/><span>Check.</span></h1>
+      <p class="subtitle">Test your general knowledge across science, history &amp; tech. Ready?</p>
+      <button class="btn" id="start-btn">Start Quiz →</button>
+    </div>
+
+    <!-- QUIZ SCREEN -->
+    <div class="card hidden" id="quiz-screen">
+      <div class="meta">
+        <span class="question-count" id="question-count">Question 1 / 5</span>
+        <span class="score-live" id="score-live">Score: 0</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <h2 id="question-text">Question goes here</h2>
+      <div class="options" id="options-container"></div>
+      <button class="btn" id="next-btn" disabled>Next →</button>
+    </div>
+
+    <!-- RESULT SCREEN -->
+    <div class="card hidden" id="result-screen">
+      <div class="trophy" id="trophy">🏆</div>
+      <h2 id="result-title">Quiz Complete!</h2>
+      <div class="score-display">
+        <span id="final-score">0</span>
+        <span class="score-denom">/ 5</span>
+      </div>
+      <p id="result-message">Nice work!</p>
+      <button class="btn" id="restart-btn">Try Again ↺</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
